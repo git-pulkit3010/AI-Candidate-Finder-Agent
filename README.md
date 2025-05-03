@@ -2,6 +2,8 @@
 
 A complete AI-powered agent that parses job descriptions, scrapes candidate data, and provides an elegant web interface for recruiters.
 
+Please make an .env file with your API key from https://serpapi.com/. Also within the .env file, add MONGO_URI=mongodb://localhost:27017 (since using mongodb locally on a Docker container)
+
 ✨ Features
 
 🔍 Parse job descriptions using LLMs
