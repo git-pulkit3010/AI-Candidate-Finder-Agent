@@ -1,2 +1,5 @@
 transformers
 pymongo
+beautifulsoup4
+requests
+python-dotenv

@@ -1,26 +1,34 @@
+import os
+from dotenv import load_dotenv
+import requests
+
+load_dotenv()
+
 def search_candidates(criteria: dict) -> list:
-    # Placeholder for actual scraping logic
-    # Simulates 3 fake candidates matching the JD
-    return [
-        {
-            "name": "Ravi Kumar",
-            "title": "Senior Python Developer",
-            "skills": ["Python", "Django", "PostgreSQL"],
-            "location": "India",
-            "profile_url": "https://linkedin.com/in/ravi-python"
-        },
-        {
-            "name": "Anjali Sharma",
-            "title": "Backend Developer",
-            "skills": ["Python", "Flask", "PostgreSQL"],
-            "location": "Remote (India)",
-            "profile_url": "https://github.com/anjali-dev"
-        },
-        {
-            "name": "Suresh Mehta",
-            "title": "Software Engineer",
-            "skills": ["Python", "Django", "MongoDB"],
-            "location": "Bangalore, India",
-            "profile_url": "https://suresh.dev"
-        }
-    ]
+    query = f"{criteria['role']} {' '.join(criteria['skills'])} site:linkedin.com/in"
+    api_key = os.getenv("SERPAPI_KEY")
+    url = "https://serpapi.com/search"
+
+    params = {
+        "engine": "google",
+        "q": query,
+        "api_key": api_key,
+        "num": "5"
+    }
+
+    response = requests.get(url, params=params)
+    data = response.json()
+
+    results = data.get("organic_results", [])
+    candidates = []
+
+    for result in results:
+        candidates.append({
+            "name": result.get("title", "Unknown"),
+            "profile_url": result.get("link", ""),
+            "title": criteria["role"],
+            "skills": criteria["skills"],
+            "location": criteria.get("location", "Unspecified")
+        })
+
+    return candidates

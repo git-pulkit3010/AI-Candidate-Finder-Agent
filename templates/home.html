@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>AI Job Agent – Home</title>
+  <style>
+    :root {
+      --bg: #0f0f0f;
+      --card-bg: #1c1c1e;
+      --hover-bg: #2c2c2e;
+      --text: #ffffff;
+      --subtle: #a1a1aa;
+      --accent: #4f46e5;
+    }
+
+    * {
+      margin: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      background: var(--bg);
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      color: var(--text);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      padding: 2rem;
+    }
+
+    .container {
+      text-align: center;
+    }
+
+    h1 {
+      font-size: 2.5rem;
+      margin-bottom: 2rem;
+      color: var(--text);
+    }
+
+    .option {
+      background: var(--card-bg);
+      padding: 2.5rem 3rem;
+      border-radius: 20px;
+      margin: 1rem auto;
+      max-width: 400px;
+      transition: background 0.2s ease;
+      text-decoration: none;
+      display: block;
+      color: var(--text);
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+    }
+
+    .option:hover {
+      background: var(--hover-bg);
+    }
+
+    .option span {
+      font-size: 1.3rem;
+      display: block;
+      margin-top: 0.5rem;
+      color: var(--subtle);
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>🧠 AI Candidate Agent</h1>
+    <a href="/search" class="option">
+      🔍 Search for Candidates
+      <span>Use AI to parse job descriptions and find talent</span>
+    </a>
+    <a href="/view-all" class="option">
+      📂 View Past Searches
+      <span>Explore your search history and results</span>
+    </a>
+  </div>
+</body>
+</html>

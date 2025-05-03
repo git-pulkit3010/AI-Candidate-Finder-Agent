@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Search History – AI Agent</title>
+  <style>
+    :root {
+      --bg: #0f0f0f;
+      --card-bg: #1c1c1e;
+      --subcard-bg: #2a2a2e;
+      --text: #ffffff;
+      --subtle: #a1a1aa;
+      --accent: #4f46e5;
+    }
+
+    * { margin: 0; box-sizing: border-box; }
+
+    body {
+      background: var(--bg);
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      color: var(--text);
+      padding: 2rem;
+    }
+
+    .container {
+      max-width: 900px;
+      margin: auto;
+    }
+
+    h1 {
+      text-align: center;
+      margin-bottom: 2rem;
+      font-size: 2.2rem;
+    }
+
+    .batch {
+      background: var(--card-bg);
+      padding: 2rem;
+      border-radius: 20px;
+      margin-bottom: 2rem;
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
+    }
+
+    .batch-title {
+      margin-bottom: 1rem;
+      color: var(--subtle);
+      font-size: 1.1rem;
+    }
+
+    .candidate {
+      background: var(--subcard-bg);
+      padding: 1rem 1.5rem;
+      border-radius: 12px;
+      margin: 0.5rem 0;
+    }
+
+    .candidate a {
+      color: var(--accent);
+      text-decoration: none;
+    }
+
+    .candidate a:hover {
+      text-decoration: underline;
+    }
+
+    .candidate p {
+      margin: 0.2rem 0;
+      font-size: 0.95rem;
+    }
+
+    .back {
+      text-align: center;
+      margin-top: 2rem;
+    }
+
+    .back a {
+      color: var(--subtle);
+      text-decoration: none;
+    }
+
+    .back a:hover {
+      color: var(--accent);
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>📂 Search History</h1>
+
+    {% for item in results %}
+      <div class="batch">
+        <div class="batch-title">
+            JD Role: <strong>{{ item.job_criteria.role or 'Unknown Role' }}</strong> — Skills: {{ item.job_criteria.skills | default([]) | join(', ') }}
+        </div>
+        {% for c in item.candidates %}
+          <div class="candidate">
+            <p><strong>{{ c.name }}</strong> — {{ c.title }}</p>
+            <p>📍 {{ c.location }} | 🛠 {{ c.skills | join(', ') }}</p>
+            <p><a href="{{ c.profile_url }}" target="_blank">View Profile ↗</a></p>
+          </div>
+        {% endfor %}
+      </div>
+    {% endfor %}
+
+    <div class="back">
+      <a href="/">← Back to Home</a>
+    </div>
+  </div>
+</body>
+</html>

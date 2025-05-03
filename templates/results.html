@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Matching Candidates – AI Agent</title>
+  <style>
+    :root {
+      --bg: #0f0f0f;
+      --card-bg: #1c1c1e;
+      --subtle: #a1a1aa;
+      --text: #ffffff;
+      --accent: #4f46e5;
+    }
+
+    * {
+      margin: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      background: var(--bg);
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      color: var(--text);
+      padding: 2rem;
+    }
+
+    .container {
+      max-width: 900px;
+      margin: auto;
+    }
+
+    h1 {
+      text-align: center;
+      font-size: 2.2rem;
+      margin-bottom: 2rem;
+    }
+
+    .card {
+      background: var(--card-bg);
+      border-radius: 16px;
+      padding: 1.5rem 2rem;
+      margin-bottom: 1.5rem;
+      box-shadow: 0 6px 18px rgba(0,0,0,0.3);
+    }
+
+    .card h2 {
+      margin-bottom: 0.5rem;
+      font-size: 1.4rem;
+    }
+
+    .card p {
+      margin: 0.3rem 0;
+      font-size: 0.95rem;
+    }
+
+    .card a {
+      color: var(--accent);
+      text-decoration: none;
+    }
+
+    .card a:hover {
+      text-decoration: underline;
+    }
+
+    .actions {
+      text-align: center;
+      margin-top: 2rem;
+    }
+
+    .actions a {
+      color: var(--subtle);
+      text-decoration: none;
+      margin: 0 1rem;
+    }
+
+    .actions a:hover {
+      color: var(--accent);
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>🎯 Matching Candidates</h1>
+
+    {% for c in candidates %}
+      <div class="card">
+        <h2>{{ c.name }}</h2>
+        <p><strong>📍 Location:</strong> {{ c.location }}</p>
+        <p><strong>🛠 Skills:</strong> {{ c.skills | join(', ') }}</p>
+        <p><strong>💼 Title:</strong> {{ c.title }}</p>
+        <p><a href="{{ c.profile_url }}" target="_blank">🔗 View Profile ↗</a></p>
+      </div>
+    {% endfor %}
+
+    <div class="actions">
+      <a href="/">← Home</a> |
+      <a href="/view-all">📂 View All</a>
+    </div>
+  </div>
+</body>
+</html>
