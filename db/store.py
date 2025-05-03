@@ -7,7 +7,7 @@ from pymongo import MongoClient
 load_dotenv()
 
 MONGO_URI = os.getenv("MONGO_URI", "mongodb://localhost:27017")
-client = MongoClient("mongodb://localhost:27017")
+client = MongoClient("mongodb://localhost:27017", serverSelectionTimeoutMS=5000)
 db = client.ai_agent_db
 collection = db.candidates
 

@@ -44,16 +44,19 @@
     }
 
     textarea {
-      width: 100%;
-      background: #2c2c2e;
-      color: var(--text);
-      border: none;
-      padding: 1rem;
-      font-size: 1rem;
-      border-radius: 12px;
-      resize: vertical;
-      margin-bottom: 1rem;
-    }
+  width: 100%;
+  height: 250px;
+  background: #2c2c2e;
+  color: var(--text);
+  border: none;
+  padding: 1rem;
+  font-size: 1rem;
+  border-radius: 12px;
+  resize: vertical;
+  margin-bottom: 1rem;
+}
+
+
 
     button {
       background: var(--accent);
@@ -92,7 +95,7 @@
       <p class="error">{{ error }}</p>
     {% endif %}
     <form method="POST">
-      <textarea name="job_description" placeholder="Paste your job description here..." required></textarea>
+      <textarea name="job_description" placeholder="Paste your job description here..." required style="height: 250px;"></textarea>
       <button type="submit">Find Candidates</button>
     </form>
     <a href="/">← Back to Home</a>
