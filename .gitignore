@@ -1,5 +1,22 @@
-agents/_pychache_/
-context/_pychache_/
-outputs/_pychache_/
+# Bytecode cache
+__pycache__/
+**/__pycache__/
+
+# Python environment
 .env
+*.pyc
+*.pyo
+*.pyd
+
+# Virtual environment
+venv/
+
+# VS Code
+.vscode/
+
+# Docker artifacts
 docker_mongo.txt
+
+# System
+.DS_Store
+Thumbs.db
