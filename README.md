@@ -13,7 +13,7 @@ Please make an .env file with your API key from https://serpapi.com/. Also withi
 🧠 Easily switch LLMs (OpenAI, HuggingFace, or local)
 
 
-🛠 Tech Stack
+**🛠 Tech Stack**
 
 Python 3.10
 Flask
@@ -21,34 +21,17 @@ MongoDB (via Docker)
 Jinja2 (HTML templates)
 OpenAI or HuggingFace APIs (LLM)
 
-1. Start MongoDB
-
+**Start MongoDB**
 docker run -d --name mongodb \
   -p 27017:27017 \
   -v ~/mongo-data:/data/db \
   mongo:5
 
-2. Virtual Env Activation and Installation
-   
+**Virtual Env Activation and Installation**
 python3 -m venv venv
 source venv/bin/activate
 pip install -r requirements.txt
 
-3. Run Flask App
-   
+**Run Flask App**
 python main.py
 
-
-📂 Project Structure
-
-ai_agent_mcp/
-├── agents/                # Candidate scraping logic
-├── context/               # JD parsing / keyword extraction
-├── db/
-│   └── store.py           # MongoDB connection
-├── outputs/               # Output formatting logic
-├── templates/             # HTML UI
-├── main.py                # Flask app entry point
-├── Dockerfile             # Container config
-├── docker-compose.yml     # App + Mongo
-└── requirements.txt
