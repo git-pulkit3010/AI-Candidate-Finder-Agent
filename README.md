@@ -28,13 +28,13 @@ docker run -d --name mongodb \
   -v ~/mongo-data:/data/db \
   mongo:5
 
-3. Virtual Env Activation and Installation
+2. Virtual Env Activation and Installation
    
 python3 -m venv venv
 source venv/bin/activate
 pip install -r requirements.txt
 
-5. Run Flask App
+3. Run Flask App
    
 python main.py
 
