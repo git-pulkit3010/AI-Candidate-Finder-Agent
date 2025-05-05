@@ -22,17 +22,20 @@ Jinja2 (HTML templates)
 OpenAI or HuggingFace APIs (LLM)
 
 1. Start MongoDB
+
 docker run -d --name mongodb \
   -p 27017:27017 \
   -v ~/mongo-data:/data/db \
   mongo:5
 
-2. Virtual Env Activation and Installation
+3. Virtual Env Activation and Installation
+   
 python3 -m venv venv
 source venv/bin/activate
 pip install -r requirements.txt
 
-3. Run Flask App
+5. Run Flask App
+   
 python main.py
 
 
